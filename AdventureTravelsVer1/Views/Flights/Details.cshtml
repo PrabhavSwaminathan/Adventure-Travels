@@ -1,0 +1,91 @@
+﻿@model AdventureTravelsVer1.Models.Flight
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightCarrier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightCarrier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatsAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatsAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseFare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseFare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.from)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.from)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.to)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.to)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.departureDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departureDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arrivalDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arrivalDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FlightId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

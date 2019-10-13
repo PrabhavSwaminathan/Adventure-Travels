@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="BookingModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+          <ScalarProperty Name="NumberOfAdults" ColumnName="NumberOfAdults" />
+          <ScalarProperty Name="NumberOfKids" ColumnName="NumberOfKids" />
+          <ScalarProperty Name="BookingAmount" ColumnName="BookingAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights">
+      <EntityTypeMapping TypeName="BookingModel.Flight">
+        <MappingFragment StoreEntitySet="Flight">
+          <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+          <ScalarProperty Name="FlightCode" ColumnName="FlightCode" />
+          <ScalarProperty Name="FlightName" ColumnName="FlightName" />
+          <ScalarProperty Name="FlightCarrier" ColumnName="FlightCarrier" />
+          <ScalarProperty Name="SeatsAvailable" ColumnName="SeatsAvailable" />
+          <ScalarProperty Name="BaseFare" ColumnName="BaseFare" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="departureDateTime" ColumnName="departureDateTime" />
+          <ScalarProperty Name="arrivalDateTime" ColumnName="arrivalDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

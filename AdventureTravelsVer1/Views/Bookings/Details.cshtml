@@ -1,0 +1,59 @@
+﻿@model AdventureTravelsVer1.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfAdults)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfAdults)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfKids)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfKids)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight.FlightCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.FlightCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

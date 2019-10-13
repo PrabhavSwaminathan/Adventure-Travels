@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FlightId" Type="int" Nullable="false" />
+    <Property Name="NumberOfAdults" Type="int" Nullable="false" />
+    <Property Name="NumberOfKids" Type="int" Nullable="false" />
+    <Property Name="BookingAmount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="FlightId" />
+    </Key>
+    <Property Name="FlightId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlightCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FlightName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FlightCarrier" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SeatsAvailable" Type="int" Nullable="false" />
+    <Property Name="BaseFare" Type="int" Nullable="false" />
+    <Property Name="from" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="to" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="departureDateTime" Type="datetime" Nullable="false" />
+    <Property Name="arrivalDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Booking__FlightI__4F7CD00D">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="FlightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookingModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Booking__FlightI__4F7CD00D" Association="Self.FK__Booking__FlightI__4F7CD00D">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
