@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AdventureTravelsVer1.Models.Flight>
+
+@{
+    ViewBag.Title = "Flight Stats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Flight Stats</h2>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    @{
+        var chart = new Chart(width: 600, height: 400, theme: ChartTheme.Blue)
+        .AddTitle("Average Base Fare of all the Flights from Melbourne")
+        .AddSeries("Default", chartType: "Bar",
+        xValue: Model, xField: "to",
+        yValues: Model, yFields: "BaseFare")
+        .Write();
+    }
+</body>
+</html>

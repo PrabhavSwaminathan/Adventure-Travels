@@ -10,6 +10,7 @@ using AdventureTravelsVer1.Models;
 
 namespace AdventureTravelsVer1.Views
 {
+    [RequireHttps]
     public class AspNetUsersController : Controller
     {
         private AdventureTravelEntities db = new AdventureTravelEntities();

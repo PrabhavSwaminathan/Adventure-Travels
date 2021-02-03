@@ -10,16 +10,18 @@ using AdventureTravelsVer1.Models;
 
 namespace AdventureTravelsVer1.Views
 {
+    
+    [RequireHttps]
     public class FlightsController : Controller
     {
         private AdventureTravelEntities db = new AdventureTravelEntities();
-
+        [Authorize(Roles = "FlightProvider")]
         // GET: Flights
         public ActionResult Index()
         {
             return View(db.Flights.ToList());
         }
-
+        [Authorize(Roles = "FlightProvider")]
         // GET: Flights/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,7 +36,7 @@ namespace AdventureTravelsVer1.Views
             }
             return View(flight);
         }
-
+        [Authorize(Roles = "FlightProvider")]
         // GET: Flights/Create
         public ActionResult Create()
         {
@@ -44,6 +46,7 @@ namespace AdventureTravelsVer1.Views
         // POST: Flights/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "FlightProvider")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FlightId,FlightCode,FlightName,FlightCarrier,SeatsAvailable,BaseFare,from,to,departureDateTime,arrivalDateTime")] Flight flight)
@@ -58,6 +61,7 @@ namespace AdventureTravelsVer1.Views
             return View(flight);
         }
 
+        [Authorize(Roles = "FlightProvider")]
         // GET: Flights/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -76,6 +80,7 @@ namespace AdventureTravelsVer1.Views
         // POST: Flights/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "FlightProvider")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "FlightId,FlightCode,FlightName,FlightCarrier,SeatsAvailable,BaseFare,from,to,departureDateTime,arrivalDateTime")] Flight flight)
@@ -88,7 +93,7 @@ namespace AdventureTravelsVer1.Views
             }
             return View(flight);
         }
-
+        [Authorize(Roles = "FlightProvider")]
         // GET: Flights/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -104,6 +109,7 @@ namespace AdventureTravelsVer1.Views
             return View(flight);
         }
 
+        [Authorize(Roles = "FlightProvider")]
         // POST: Flights/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -113,6 +119,11 @@ namespace AdventureTravelsVer1.Views
             db.Flights.Remove(flight);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult FlightSearch(string FromLocation, string ToLocation)
+        {
+            return View(db.Flights.Where(x => x.from == FromLocation && x.to == ToLocation).ToList());
         }
 
         protected override void Dispose(bool disposing)

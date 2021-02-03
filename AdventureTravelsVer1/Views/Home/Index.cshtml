@@ -1,46 +1,44 @@
-﻿@model AdventureTravelsVer1.Models.Flight
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    <h2>Book your Flight</h2>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.from, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="text" name="from"><br>
-        </div>
+    <div>
+        <h1>-</h1>
+        <h1>Adventure Travels</h1>
+        <p class="lead">Your one stop shop for booking flights to your favourite destination</p>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.to, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="text" name="to"><br>
-        </div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Book your flights</h2>
+        <p>
+            Haven't been to Sydney's Darling Harbour, Haven't ticked off Snorkling at the Great Barrier Reef, don't worry- Book your tickets at the most affordable prices.
+        </p>
+        @Html.ActionLink("FlightSearch", "FlightSearch", "Flights")
     </div>
-    .
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Submit">
-        </div>
+
+    <div class="col-md-4">
+        <h2>Manage your Budget.</h2>
+        <p>Want to get away for the weekend, but you're low on budget, make use of our graph feature to see which destination fits your pocket</p>
+        @Html.ActionLink("Flight Stats", "MyChart")
+    </div>
+
+    <div class="col-md-4">
+        <h2>Just Map it</h2>
+        <p>You can easily find the location and top tourist spots on where you're planning to go, Just enter your location and your destination, it's that easy! </p>
+        @Html.ActionLink("Map it", "LocationMap")
     </div>
 </div>
-}
+<html>
+<head>
+    <style>
+        body {
+            background-image: url("https://wallpaperaccess.com/full/254390.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
 
-
-
+</body>
+</html>

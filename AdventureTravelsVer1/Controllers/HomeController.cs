@@ -12,11 +12,15 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
 
+//this is the latest project
 namespace AdventureTravelsVer1.Controllers
 {
+    [Authorize]
+    [RequireHttps]
     public class HomeController : Controller
     {
         private AdventureTravelEntities db = new AdventureTravelEntities();
+
         public ActionResult Index()
         {
             return View();
@@ -24,24 +28,20 @@ namespace AdventureTravelsVer1.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Us!";
 
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult MyChart()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(db.Flights.ToList());
         }
-
-        public ActionResult QuickNotes()
+        public ActionResult LocationMap()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Message = "Find your desination!";
             return View();
         }
-
     }
-} 
+}
+

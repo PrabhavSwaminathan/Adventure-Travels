@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AdventureTravelsVer1.Models.Image>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>-</h1>
+<h2>Coming Soon!</h2>
+<h4>To give you an idea of how the promotions will look, here's a little sneak peak</h4>
+<h4>Happy Flying!</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img class="img-thumbnail" src="@Url.Content("~/Uploads/" + item.Path)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+    }
+
+</table>

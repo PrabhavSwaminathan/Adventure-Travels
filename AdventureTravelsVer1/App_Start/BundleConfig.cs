@@ -43,6 +43,12 @@ namespace AdventureTravelsVer1
 
             bundles.Add(new ScriptBundle("~/bundles/Script-custom-editor").Include(
            "~/Scripts/script-custom-editor.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+          "~/Scripts/jquery-ui-{version}.js"));
+            //css   
+            bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
+                   "~/Content/jquery-ui.css"));
         }
     }
 }

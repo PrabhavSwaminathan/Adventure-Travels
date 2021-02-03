@@ -11,7 +11,8 @@ namespace AdventureTravelsVer1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class Flight
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace AdventureTravelsVer1.Models
         {
             this.Bookings = new HashSet<Booking>();
         }
-    
+
+        public Nullable<double> Y = null;
         public int FlightId { get; set; }
         public string FlightCode { get; set; }
         public string FlightName { get; set; }

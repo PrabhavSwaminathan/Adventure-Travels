@@ -58,11 +58,11 @@ namespace AdventureTravelsVer1
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "599156692837-r4mudedfue61l6l67slsaljs59ee8bts.apps.googleusercontent.com",
+                ClientSecret = "z_ZYKdI-H24x30qFVX53EIip"
+            });
         }
     }
 }

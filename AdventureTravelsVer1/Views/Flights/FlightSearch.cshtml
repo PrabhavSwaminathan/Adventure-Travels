@@ -1,0 +1,106 @@
+﻿@model IEnumerable<AdventureTravelsVer1.Models.Flight>
+@{
+    ViewBag.Title = "FlightSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>-</h1>
+<h2>Flight Search</h2>
+@using (Html.BeginForm("FlightSearch", "Flights", FormMethod.Get))
+{
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBox("FromLocation")
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBox("ToLocation")
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="FlightSearch" />
+        </div>
+    </div>
+</div>
+}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FlightCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FlightName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FlightCarrier)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SeatsAvailable)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BaseFare)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.from)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.to)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.departureDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.arrivalDateTime)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FlightCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FlightName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FlightCarrier)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SeatsAvailable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BaseFare)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.departureDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.arrivalDateTime)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @section Scripts {
+            @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+            @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+
+            <script>
+                $(document).ready(function () {
+                    $('.table').DataTable();
+                });</script>
+
+        }
+        <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />

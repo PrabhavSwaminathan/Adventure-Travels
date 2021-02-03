@@ -6,3 +6,46 @@
 
 <h2>Admin Index</h2>
 
+<div>
+    <h1>Adventure Travels</h1>
+    <p class="lead">Welcome Admin</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>User Information / Bookings / Rating </h2>
+        <p>
+            CRUD Operations can be performed for the users in the system and also the bookings made by the users in the system and the rating given by the user in the system.
+        </p>
+        @Html.ActionLink("User Details", "Index", "AspNetUsers")
+        @Html.ActionLink("Edit Bookings", "Index", "Bookings")
+        @Html.ActionLink("Review Rating", "Index", "Ratings")
+    </div>
+    <div class="col-md-4">
+        <h2>Send Email / Send Bulk Email</h2>
+        <p>An email can be sent to a specific user or bulk email can be sent to multiple users in the system for the purposes of advertising.</p>
+        @Html.ActionLink("Send Email", "Send_Email", "Admin")
+        @Html.ActionLink("Bulk Email", "Bulk_Email", "Admin")
+    </div>
+
+    <div class="col-md-4">
+        <h2>Upload Image</h2>
+        <p>An image can be uploaded for the pupose of marketing travel packages.</p>
+        @Html.ActionLink("Image Upload", "Index", "Images")
+    </div>
+</div>
+
+<html>
+<head>
+    <style>
+        body {
+            background-image: url("https://wallpaperaccess.com/full/254390.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

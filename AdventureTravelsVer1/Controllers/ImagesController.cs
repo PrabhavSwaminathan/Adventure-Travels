@@ -11,12 +11,18 @@ using AdventureTravelsVer1.Models;
 
 namespace AdventureTravelsVer1.Controllers
 {
+    [RequireHttps]
     public class ImagesController : Controller
     {
         private ModelImages db = new ModelImages();
 
         // GET: Images
         public ActionResult Index()
+        {
+            return View(db.Images.ToList());
+        }
+
+        public ActionResult IndexUser()
         {
             return View(db.Images.ToList());
         }

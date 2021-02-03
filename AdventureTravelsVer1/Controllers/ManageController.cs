@@ -10,6 +10,7 @@ using AdventureTravelsVer1.Models;
 
 namespace AdventureTravelsVer1.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class ManageController : Controller
     {

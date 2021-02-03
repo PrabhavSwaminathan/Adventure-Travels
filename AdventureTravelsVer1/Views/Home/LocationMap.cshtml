@@ -1,0 +1,91 @@
+﻿@model AdventureTravelsVer1.Models.Flight
+@{
+    Layout = null;
+}
+<h2>LocationMap</h2>
+
+@{
+    Layout = null;
+}
+<div id="map_populate" style="width:100%; height:500px; border: 5px solid #5E5454;">
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Flight</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.from, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.from, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.from, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.to, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.to, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.to, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Search" class="btn btn-default" onclick="initMap()" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    var map;
+    function initMap() {
+        var lnt = new google.maps.LatLng(26.45, 82.85);
+        var diagChoice = {
+            zoom: 9,
+            center: lnt,
+            diagId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById('map_populate'), diagChoice);
+        var marker = new google.maps.Marker({
+            position: lnt,
+            map: map
+        });
+
+        mapcode = new google.maps.Geocoder();
+        mapcode1 = new google.maps.Geocoder();
+        var completeaddress = document.getElementById('from').value;
+        var completeaddress1 = document.getElementById('to').value;
+        mapcode.geocode({ 'address': completeaddress }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map
+                });
+                source = results[0].geometry.location
+            } else {
+                alert('Location Not Tracked. ' + status);
+            }
+        });
+        mapcode1.geocode({ 'address': completeaddress1 }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map
+                });
+                destination = results[0].geometry.location
+            } else {
+                alert('Location Not Tracked. ' + status);
+            }
+        });
+
+    }</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9G8RwHq1CohiYbIGch3qHqcYcgcIz44o"></script>
